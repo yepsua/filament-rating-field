@@ -86,12 +86,12 @@
     }">
         <div class="hidden">
             <div x-ref="{{$getRefId('defaultIcon')}}">
-                @include('forms.components._rating-item', [
+                @include('filament-rating-field::forms.components._rating-item', [
                     'component' => $getIcon(),
                 ])
             </div>
             <div x-ref="{{$getRefId('selectedIcon')}}">
-                @include('forms.components._rating-item', [
+                @include('filament-rating-field::forms.components._rating-item', [
                     'component' => $getSelectedIcon(),
                 ])
             </div>
@@ -105,7 +105,7 @@
                 data-index="{{ $i }}"
                 x-tooltip.raw="{{ $getTooltip($i) }}"
                 x-ref="{{$getRefId('ratingIcons', $i)}}">
-                @include('forms.components._rating-item', [
+                @include('filament-rating-field::forms.components._rating-item', [
                     'component' => $i <= $getState() ? $getSelectedIcon() : $getIcon(),
                 ])
             </li>
