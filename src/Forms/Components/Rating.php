@@ -1,4 +1,5 @@
 <?php
+
 namespace Yepsua\Filament\Forms\Components;
 
 use Closure;
@@ -11,7 +12,7 @@ class Rating extends Field
 {
     protected string $color = "#EAB308";
     protected string $disabledColor = "#6B7280";
-    protected string $clearColor = " #EF4444 ";
+    protected string $clearIconColor = " #EF4444 ";
     protected string | Closure $icon = "heroicon-o-star";
     protected string | Closure $selectedIcon = "heroicon-s-star";
     protected string $clearIcon = "heroicon-s-x-circle";
@@ -23,7 +24,7 @@ class Rating extends Field
     protected bool | Closure $clearable = false;
     protected string $cursor = 'pointer';
     protected string $disabledCursor = 'not-allowed';
-    protected string $clearTooltip = "";
+    protected string $clearIconTooltip = "";
     protected array $tooltips = [];
 
     protected string $view = "filament-rating-field::forms.components.rating";
@@ -42,16 +43,16 @@ class Rating extends Field
         return $this;
     }
 
-    public function clearColor(string $clearColor): self
+    public function clearIconColor(string $clearIconColor): self
     {
-        $this->clearColor = $clearColor;
+        $this->clearIconColor = $clearIconColor;
 
         return $this;
     }
 
-    public function clearTooltip(string $clearTooltip): self
+    public function clearIconTooltip(string $clearIconTooltip): self
     {
-        $this->clearTooltip = $clearTooltip;
+        $this->clearIconTooltip = $clearIconTooltip;
 
         return $this;
     }
@@ -99,22 +100,24 @@ class Rating extends Field
         return $this;
     }
 
-    public function options(array | Closure $options): self {
-        if(is_callable($options)) {
+    public function options(array | Closure $options): self
+    {
+        if (is_callable($options)) {
             $options = $options();
         }
         $this->min(1);
         $this->max(sizeof($options));
         $this->tooltips = [];
 
-        foreach($options as $option) {
-            $this->tooltips[] =  $option;
+        foreach ($options as $option) {
+            $this->tooltips[] = $option;
         }
 
         return $this;
     }
 
-    public function getTooltip(int $index): mixed {
+    public function getTooltip(int $index): mixed
+    {
         return $this->tooltips[$index - 1] ?? '';
     }
 
@@ -178,14 +181,14 @@ class Rating extends Field
         return $this->disabledColor;
     }
 
-    public function getClearColor(): string
+    public function getClearIconColor(): string
     {
-        return $this->clearColor;
+        return $this->clearIconColor;
     }
 
-    public function getClearTooltip(): string
+    public function getClearIconTooltip(): string
     {
-        return $this->clearTooltip;
+        return $this->clearIconTooltip;
     }
 
     public function getIcon(): string
@@ -240,10 +243,11 @@ class Rating extends Field
             : $this->getColor();
     }
 
-    public function getClearColorStyle(): string {
+    public function getClearIconColorStyle(): string
+    {
         return $this->isDisabled()
             ? $this->getDisabledColor()
-            : $this->getClearColor();
+            : $this->getClearIconColor();
     }
 
     public function hasEffects(): bool
@@ -256,12 +260,14 @@ class Rating extends Field
         return $this->evaluate($this->clearable);
     }
 
-    public function getRefId(string $prefix, ?string $suffix = null) : string{
+    public function getRefId(string $prefix, ?string $suffix = null): string
+    {
         return sprintf('%s_%s%s', str_replace('.', '_', $this->getId()), $prefix, $suffix ? '_' . $suffix : '');
     }
 
-    public function getSizeClass() : string{
-        return sprintf('w-%s h-%s', $this->getWidth(),$this->getHeight());
+    public function getSizeClass(): string
+    {
+        return sprintf('w-%s h-%s', $this->getWidth(), $this->getHeight());
     }
 
     public function getCursorClass(): string
@@ -271,4 +277,3 @@ class Rating extends Field
             : sprintf("cursor-%s", $this->getCursor());
     }
 }
-

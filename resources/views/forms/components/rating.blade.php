@@ -115,8 +115,8 @@
                 <x-dynamic-component
                     x-on:click="clearHandler"
                     :component="$getClearIcon()"
-                    :x-tooltip.raw="$getClearTooltip()"
-                    style="color: {{$getClearColorStyle()}}"
+                    :x-tooltip.raw="$getClearIconTooltip()"
+                    style="color: {{$getClearIconColorStyle()}}"
                     class="mr-2 ml-1 rtl:ml-2 rtl:-mr-1 flex-shrink-0 {{ $getSizeClass() }} {{ $getCursorClass() }}"
                 />
             </li>
