@@ -25,6 +25,7 @@ php artisan vendor:publish --tag="filament-rating-field-views"
 ```
 
 ## Usage
+### Form Field
 
 ```php
 use Yepsua\Filament\Forms\Components\Rating
@@ -51,7 +52,7 @@ By default the range values goes from 1 to 5 and the icon displayed is `heroicon
 The rating fields provides several option to customize its behavior. Next some of the more used for:
 
 #### 
-### <ins>*Disabled*</ins>
+#### <ins>*Disabled*</ins>
 
 ```php
 use Yepsua\Filament\Forms\Components\Rating
@@ -74,7 +75,7 @@ use Yepsua\Filament\Forms\Components\Rating
 </div>
 <br/>
 
-### <ins>*Min and max values*</ins>
+#### <ins>*Min and max values*</ins>
 
 ```php
 use Yepsua\Filament\Forms\Components\Rating
@@ -98,7 +99,7 @@ use Yepsua\Filament\Forms\Components\Rating
 </div>
 <br/>
 
-### <ins>*Custom icons and colors*</ins>
+#### <ins>*Custom icons and colors*</ins>
 
 ```php
 use Yepsua\Filament\Forms\Components\Rating
@@ -122,7 +123,7 @@ use Yepsua\Filament\Forms\Components\Rating
 </div>
 <br/>
 
-### <ins>*Custom size*</ins>
+#### <ins>*Custom size*</ins>
 
 ```php
 use Yepsua\Filament\Forms\Components\Rating
@@ -145,7 +146,7 @@ use Yepsua\Filament\Forms\Components\Rating
 </div>
 <br/>
 
-### <ins>*No mouse effects*</ins>
+#### <ins>*No mouse effects*</ins>
 
 Disable the mouseenter and mouseleave animation.
 
@@ -164,7 +165,7 @@ use Yepsua\Filament\Forms\Components\Rating
     }
 ...
 ```
-### <ins>*Clearable*</ins>
+#### <ins>*Clearable*</ins>
 
 Allow the user to clear the rating selection.
 
@@ -191,7 +192,7 @@ use Yepsua\Filament\Forms\Components\Rating
 </div>
 <br/>
 
-### <ins>*Cursors*</ins>
+#### <ins>*Cursors*</ins>
 
 The value of the cursor is based on the [Tailwind cursor](https://tailwindcss.com/docs/cursor). The  prefix `cursor-` its not required in the value.
 
@@ -211,7 +212,7 @@ use Yepsua\Filament\Forms\Components\Rating
     }
 ...
 ```
-### <ins>*Tooltips*</ins>
+#### <ins>*Tooltips*</ins>
 
 ```php
 use Yepsua\Filament\Forms\Components\Rating
@@ -238,7 +239,7 @@ use Yepsua\Filament\Forms\Components\Rating
 </div>
 <br/>
 
-## Field options.
+#### Field options.
 
 * ->color(): Set the icon colors for the rating field.
 * ->disabledColor(): Set the icon color when the field is disabled. 
@@ -258,6 +259,37 @@ use Yepsua\Filament\Forms\Components\Rating
 * ->clearIconTooltip(): Set the tooltip for the clear icon.
 
 You can review the default value for the options above and others in the class `App\Forms\Components\Rating` 
+
+### Table Column
+```php
+use Yepsua\Filament\Tables\Components\RatingColumn;
+
+// ...
+protected function getTableColumns(): array 
+{
+    return [
+        // ..
+        RatingColumn::make('rating'),
+        // ..
+    ];
+}
+...
+```
+
+#### RatingColumn options.
+
+* ``` RatingColumn::make('rating')->color() ```  Set the icon colors for the rating field.
+* ``` RatingColumn::make('rating')->icon() ``` Set the icon for the default items.
+* ``` RatingColumn::make('rating')->selectedIcon() ``` Set the solid icon for the selected items.
+* ``` RatingColumn::make('rating')->icons() ``` Set the icons for the default items and for selected items.
+* ``` RatingColumn::make('rating')->minValue() ``` Set the min value for the rating field. Default: 1
+* ``` RatingColumn::make('rating')->maxValue() ``` Set the max value for the rating field. Default: 5
+* ``` RatingColumn::make('rating')->width() ``` Set the width value for each item in the field: Default: 6
+* ``` RatingColumn::make('rating')->height() ``` Set the height value for each item in the field: Default: 6
+* ``` RatingColumn::make('rating')->size() ``` Set the same value for the width and height properties.
+* ``` RatingColumn::make('rating')->options() ``` set tooltip
+
+![filament-page-with-sidebar](./images/rating-column.png)
 
 ## Testing
 
