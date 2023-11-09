@@ -6,8 +6,8 @@
 <br/>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/yepsua/filament-rating-field.svg?style=flat-square)](https://packagist.org/packages/yepsua/filament-rating-field)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/yepsua/filament-rating-field/run-tests?label=tests)](https://github.com/yepsua/filament-rating-field/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/yepsua/filament-rating-field/Check%20&%20fix%20styling?label=code%20style)](https://github.com/yepsua/filament-rating-field/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/yepsua/filament-rating-field/run-tests.yml?label=tests)](https://github.com/yepsua/filament-rating-field/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/yepsua/filament-rating-field/php-cs-fixer.yml?label=code%20style)](https://github.com/yepsua/filament-rating-field/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/yepsua/filament-rating-field.svg?style=flat-square)](https://packagist.org/packages/yepsua/filament-rating-field)
 
 ## Installation
