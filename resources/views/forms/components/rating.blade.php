@@ -11,14 +11,16 @@
     <div x-data="{
         state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }},
         clickHandler($event) {
-            @if($isDisabled())
+            let disabled = {{ $isDisabled() ? 'true' : 'false' }};
+
+            if (disabled) {
                 return;
-            @else
-                let target = $event.target.dataset.index ?  $event.target : $event.target.closest('.rating-item');
-                let index = target.dataset.index || false;
-                this.state = index;
-                this.draw(index);
-            @endif
+            }
+
+            let target = $event.target.dataset.index ?  $event.target : $event.target.closest('.rating-item');
+            let index = target.dataset.index || false;
+            this.state = index;
+            this.draw(index);
         },
         draw(index) {
             let tag1 = $refs['{{ $getRefId('defaultIcon') }}'].getElementsByTagName('svg')[0];
@@ -49,38 +51,44 @@
             }
         },
         mouseoverHandler($event) {
-            @if($isDisabled() || !$hasEffects())
+            let disabled = {{ $isDisabled() || ! $hasEffects() ? 'true' : 'false' }};
+
+            if (disabled) {
                 return;
-            @else
-                $event.stopPropagation();
-                $event.preventDefault();
-                let target = $event.target.dataset.index ?  $event.target : $event.target.closest('.rating-item');
-                let index = target.dataset.index || false;
+            }
 
-                if(!index) {
-                    return;
-                }
+            $event.stopPropagation();
+            $event.preventDefault();
+            let target = $event.target.dataset.index ?  $event.target : $event.target.closest('.rating-item');
+            let index = target.dataset.index || false;
 
-                this.draw(index);
-            @endif
+            if (!index) {
+                return;
+            }
+
+            this.draw(index);
         },
         mouseleaveHandler($event) {
-            @if($isDisabled() || !$hasEffects())
+            let disabled = {{ $isDisabled() || ! $hasEffects() ? 'true' : 'false' }};
+
+            if (disabled) {
                 return;
-            @else
-                $event.stopPropagation();
-                $event.preventDefault();
-                let index = this.state || 0;
-                this.draw(index);
-            @endif
+            }
+
+            $event.stopPropagation();
+            $event.preventDefault();
+            let index = this.state || 0;
+            this.draw(index);
         },
         clearHandler($event) {
-            @if($isDisabled() || !$hasEffects())
+            let disabled = {{ $isDisabled() || ! $hasEffects() ? 'true' : 'false' }};
+
+            if (disabled) {
                 return;
-            @else
-                this.state = null;
-                this.draw(this.state);
-            @endif
+            }
+
+            this.state = null;
+            this.draw(this.state);
         }
     }">
         <div class="hidden">
