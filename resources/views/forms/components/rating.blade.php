@@ -21,19 +21,18 @@
             @endif
         },
         draw(index) {
-            let tag1 = $refs['{{$getRefId('defaultIcon')}}'].getElementsByTagName('svg')[0];
+            let tag1 = $refs['{{ $getRefId('defaultIcon') }}'].getElementsByTagName('svg')[0];
             this.redraw(tag1, {{ $getMax() }});
-            let tag2 = $refs['{{$getRefId('selectedIcon')}}'].getElementsByTagName('svg')[0];
+            let tag2 = $refs['{{ $getRefId('selectedIcon') }}'].getElementsByTagName('svg')[0];
             this.redraw(tag2, index);
         },
         redraw(templateTag, maxItems) {
-
-            for(let i=1; i <= maxItems; i++) {
-                if(!$refs['{{$getRefId('ratingIcons')}}_' + i]) {
+            for (let i = 1; i <= maxItems; i++) {
+                if (!$refs['{{ $getRefId('ratingIcons') }}_' + i]) {
                     continue;
                 }
 
-                let ratingTag = $refs['{{$getRefId('ratingIcons')}}_' + i].getElementsByTagName('svg')[0];
+                let ratingTag = $refs['{{ $getRefId('ratingIcons') }}_' + i].getElementsByTagName('svg')[0];
 
                 while(ratingTag.attributes.length > 0){
                     ratingTag.removeAttribute(ratingTag.attributes[0].name);
@@ -85,12 +84,12 @@
         }
     }">
         <div class="hidden">
-            <div x-ref="{{$getRefId('defaultIcon')}}">
+            <div x-ref="{{ $getRefId('defaultIcon') }}">
                 @include('filament-rating-field::forms.components._rating-item', [
                     'component' => $getIcon(),
                 ])
             </div>
-            <div x-ref="{{$getRefId('selectedIcon')}}">
+            <div x-ref="{{ $getRefId('selectedIcon') }}">
                 @include('filament-rating-field::forms.components._rating-item', [
                     'component' => $getSelectedIcon(),
                 ])
@@ -104,19 +103,19 @@
                 x-on:mouseleave="mouseleaveHandler"
                 data-index="{{ $i }}"
                 x-tooltip.raw="{{ $getTooltip($i) }}"
-                x-ref="{{$getRefId('ratingIcons', $i)}}">
+                x-ref="{{ $getRefId('ratingIcons', $i) }}">
                 @include('filament-rating-field::forms.components._rating-item', [
                     'component' => $i <= $getState() ? $getSelectedIcon() : $getIcon(),
                 ])
             </li>
         @endfor
-            @if($isClearable())
+            @if ($isClearable())
             <li>
                 <x-dynamic-component
                     x-on:click="clearHandler"
                     :component="$getClearIcon()"
                     :x-tooltip.raw="$getClearIconTooltip()"
-                    style="color: {{$getClearIconColorStyle()}}"
+                    style="color: {{ $getClearIconColorStyle() }}"
                     class="mr-2 ml-1 rtl:ml-2 rtl:-mr-1 flex-shrink-0 {{ $getSizeClass() }} {{ $getCursorClass() }}"
                 />
             </li>

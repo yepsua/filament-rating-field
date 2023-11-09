@@ -85,6 +85,7 @@ class RatingColumn extends Column
         if (is_callable($options)) {
             $options = $options();
         }
+
         $this->minValue(1);
         $this->maxValue(sizeof($options));
         $this->tooltips = [];
