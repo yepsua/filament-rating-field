@@ -105,6 +105,7 @@ class Rating extends Field
         if (is_callable($options)) {
             $options = $options();
         }
+
         $this->min(1);
         $this->max(sizeof($options));
         $this->tooltips = [];

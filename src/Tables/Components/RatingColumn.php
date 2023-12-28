@@ -20,7 +20,6 @@ class RatingColumn extends Column
     protected int | Closure $width = 6;
     protected int | Closure $height = 6;
     protected string $cursor = 'default';
-    // protected string $disabledCursor = 'not-allowed';
     protected string $clearIconTooltip = "";
     protected array $tooltips = [];
 
@@ -86,6 +85,7 @@ class RatingColumn extends Column
         if (is_callable($options)) {
             $options = $options();
         }
+
         $this->minValue(1);
         $this->maxValue(sizeof($options));
         $this->tooltips = [];
@@ -123,20 +123,6 @@ class RatingColumn extends Column
 
         return $this;
     }
-
-    // public function cursor(string $cursor): self
-    // {
-    //     $this->cursor = $cursor;
-
-    //     return $this;
-    // }
-
-    // public function disabledCursor(string $disabledCursor): self
-    // {
-    //     $this->disabledCursor = $disabledCursor;
-
-    //     return $this;
-    // }
 
     public function getColor(): string
     {
