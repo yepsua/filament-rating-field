@@ -18,8 +18,8 @@ class Rating extends Field
     protected string $clearIcon = "heroicon-s-x-circle";
     protected int | Closure $min = 1;
     protected int | Closure $max = 5;
-    protected int | Closure $width = 6;
-    protected int | Closure $height = 6;
+    protected int | Closure $classWidth = 6;
+    protected int | Closure $classHeight = 6;
     protected bool | Closure $effects = true;
     protected bool | Closure $clearable = false;
     protected string $cursor = 'pointer';
@@ -122,24 +122,24 @@ class Rating extends Field
         return $this->tooltips[$index - 1] ?? '';
     }
 
-    public function width(int | Closure $width): self
+    public function classWidth(int | Closure $width): self
     {
-        $this->width = $width;
+        $this->classWidth = $width;
 
         return $this;
     }
 
-    public function height(int | Closure $height): self
+    public function classHeight(int | Closure $height): self
     {
-        $this->height = $height;
+        $this->classHeight = $height;
 
         return $this;
     }
 
-    public function size(int | Closure $size): self
+    public function classSize(int | Closure $size): self
     {
-        $this->width = $size;
-        $this->height = $size;
+        $this->classWidth = $size;
+        $this->classHeight = $size;
 
         return $this;
     }
@@ -217,14 +217,14 @@ class Rating extends Field
         return $this->evaluate($this->max);
     }
 
-    public function getWidth(): int
+    public function getClassWidth(): int
     {
-        return $this->evaluate($this->width);
+        return $this->evaluate($this->classWidth);
     }
 
-    public function getHeight(): int
+    public function getClassHeight(): int
     {
-        return $this->evaluate($this->height);
+        return $this->evaluate($this->classHeight);
     }
 
     public function getCursor(): string
@@ -268,7 +268,7 @@ class Rating extends Field
 
     public function getSizeClass(): string
     {
-        return sprintf('w-%s h-%s', $this->getWidth(), $this->getHeight());
+        return sprintf('w-%s h-%s', $this->getClassWidth(), $this->getClassHeight());
     }
 
     public function getCursorClass(): string
