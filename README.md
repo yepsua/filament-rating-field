@@ -249,9 +249,9 @@ use Yepsua\Filament\Forms\Components\Rating
 * ->clearIcon(): Set the icon for the clear action.
 * ->min(): Set the min value for the rating field. Default: 1
 * ->max(): Set the max value for the rating field. Default: 5
-* ->width(): Set the width value for each item in the field: Default: 6
-* ->height(): Set the height value for each item in the field: Default: 6
-* ->size(): Set the same value for the width and height properties.
+* ->classWidth(): Set the width value for each item in the field: Default: 6
+* ->classHeight(): Set the height value for each item in the field: Default: 6
+* ->classSize(): Set the same value for the width and height properties.
 * ->effects(): Enable\Disable the mouseenter and mouseleave effects. Default: true (enabled)
 * ->clearable(): Add a extra icon at the end of the rating icons. Default: false
 * ->cursor(): Set the default cursor
@@ -284,9 +284,9 @@ protected function getTableColumns(): array
 * ``` RatingColumn::make('rating')->icons() ``` Set the icons for the default items and for selected items.
 * ``` RatingColumn::make('rating')->minValue() ``` Set the min value for the rating field. Default: 1
 * ``` RatingColumn::make('rating')->maxValue() ``` Set the max value for the rating field. Default: 5
-* ``` RatingColumn::make('rating')->width() ``` Set the width value for each item in the field: Default: 6
-* ``` RatingColumn::make('rating')->height() ``` Set the height value for each item in the field: Default: 6
-* ``` RatingColumn::make('rating')->size() ``` Set the same value for the width and height properties.
+* ``` RatingColumn::make('rating')->classWidth() ``` Set the width value for each item in the field: Default: 6
+* ``` RatingColumn::make('rating')->classHeight() ``` Set the height value for each item in the field: Default: 6
+* ``` RatingColumn::make('rating')->classSize() ``` Set the same value for the width and height properties.
 * ``` RatingColumn::make('rating')->options() ``` set tooltip
 
 ![filament-page-with-sidebar](./images/rating-column.png)
