@@ -17,7 +17,7 @@ class RatingColumn extends Column
     protected string | Closure $selectedIcon = "heroicon-s-star";
     protected int | Closure $min = 1;
     protected int | Closure $max = 5;
-    protected int | Closure $width = 6;
+    protected int | string | Closure | null $width = 6;
     protected int | Closure $height = 6;
     protected string $cursor = 'default';
     protected string $clearIconTooltip = "";
@@ -100,13 +100,6 @@ class RatingColumn extends Column
     public function getRateTooltip(int $index): mixed
     {
         return $this->tooltips[$index - 1] ?? '';
-    }
-
-    public function width(int | Closure $width): self
-    {
-        $this->width = $width;
-
-        return $this;
     }
 
     public function height(int | Closure $height): self
