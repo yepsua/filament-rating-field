@@ -1,4 +1,4 @@
-# Ranting field for the Filament forms
+# Rating field for the Filament forms
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/1541517/170590811-be2e4a1b-e3e1-4050-b239-fd74ec5c3036.png" alt="Rating">
