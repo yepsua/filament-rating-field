@@ -152,7 +152,7 @@ class RatingColumn extends Column
         return $this->evaluate($this->max);
     }
 
-    public function getWidth(): int
+    public function getWidth(): ?string
     {
         return $this->evaluate($this->width);
     }
